@@ -2,28 +2,25 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Button from '../components/Button'
-
 import Grid from '../components/Grid'
+import GridBlock from '../components/GridBlock'
 
 // styled components
 const Container = styled.div`
   color: black;
 `
 
-const Subtitle = styled.div`
-  padding: 1rem;
+const Subtitle = GridBlock.extend`
   margin: 0.5rem;
-  grid-column: 1;
   text-align: right;
+
 `
 
-const PageLinkContainer = styled(Link)`
-  padding: 1rem;
+const PageLinkContainer = GridBlock.extend`
   margin: 0.5rem;
   display: block;
   color: black;
 
-  grid-column: 2;
 
   &:hover {
     font-style: italic;
@@ -33,8 +30,8 @@ const PageLinkContainer = styled(Link)`
 // components
 function PageLink(props) {
   return (
-    <PageLinkContainer to={props.to}>
-      {props.title}
+    <PageLinkContainer {...props}>
+      <Link to={props.to}>{props.title}</Link>
     </PageLinkContainer>
   )
 }
@@ -47,17 +44,42 @@ export default function IndexPage({ data }) {
     <Grid
       height="100vh"
       width="100%">
-      <Subtitle>dynamic pages:</Subtitle>
+
+      <Subtitle col={1} row={4}>
+        dynamic pages:
+      </Subtitle>
 
       {pages.map( ({ node: page }, i) => (
         <PageLink
+          row={4+i}
+          col={2}
           to={page.frontmatter.path}
           title={page.frontmatter.title}
           key={page.id}
         />
       ))}
 
-      <Button text="this is a button component" />
+      <Subtitle col={1} row={6}>other pages:</Subtitle>
+
+      <PageLink
+        row={6}
+        col={2}
+        to="/components"
+        title="Components Page"
+      />
+
+      <PageLink
+        row={7}
+        col={2}
+        to="/page-2"
+        title="Test Page"
+      />
+
+      <Button
+        text="this is a button component"
+        row="5"
+        col="3"
+      />
 
     </Grid>
   )
@@ -76,6 +98,17 @@ export const query = graphql`
             path
             date(formatString: "DD MMMM, YYYY")
           }
+        }
+      }
+    }
+
+    allSitePage {
+      totalCount
+
+      edges {
+        node {
+          id
+          path
         }
       }
     }

@@ -1,26 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-/*
-
-* IN-PROGRESS
-
-*/
+// trying to figure out a base grid block component that we can extend
 
 // styled components
-const Container = styled.div`
+const GridBlock = styled.div`
+  overflow: hidden;
+  min-width: 0;
 
+  grid-column: ${props => props.col};
+  grid-row: ${props => props.row};
 `
 
-const Text = styled.p`
-
-`
-
-// component
-export default function Base(props) {
-  return (
-    <Container props>
-      <Text>{props.text}</Text>
-    </Container>
-  )
-}
+export default GridBlock;

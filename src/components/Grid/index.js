@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// working on implementing the doppler grid with CSS grids
+
 
 // styled components
 const Container = styled.div`
@@ -11,6 +13,9 @@ const Container = styled.div`
 
 	grid-template-columns: ${props => props.doppler(props.cols, "BACKWARD")};
 	grid-template-rows: ${props => props.doppler(props.rows, "FORWARD")};
+
+  min-height: 0;
+  min-width: 0;
 `
 
 
@@ -33,12 +38,12 @@ export default class Grid extends React.Component {
     switch (direction) {
       case 'FORWARD':
         for (let i = 0; i < num; i++) {
-          base += Math.pow(1.5, i).toFixed(2) + "fr "
+          base += Math.pow(1.6, i).toFixed(2) + "fr "
         }
         return base;
       case 'BACKWARD':
         for (let i = num; i > 0; i--) {
-          base += Math.pow(1.5, i).toFixed(2) + "fr "
+          base += Math.pow(1.6, i).toFixed(2) + "fr "
         }
         return base;
       default:

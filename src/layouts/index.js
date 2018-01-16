@@ -106,6 +106,7 @@ injectGlobal`
 
   body {
       margin: 0;
+      height: 100%;
 
       font-size: 1.6em;
       line-height: 1.6;
@@ -118,6 +119,11 @@ injectGlobal`
       -webkit-text-size-adjust: 100%;
       text-rendering: optimizeLegibility;
   }
+
+  #___gatsby {
+    height: 100%;
+  }
+
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Haas Grot Display', 'Helvetica', 'Arial', sans-serif;
@@ -169,4 +175,5 @@ injectGlobal`
     font-style: italic;
     font-stretch: normal;
   }
+
 `

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import GridBlock from '../GridBlock'
 
 // styled components
 const Container = styled.button`
@@ -23,8 +24,10 @@ const Text = styled.p`
 // component
 export default function Button(props) {
   return (
-    <Container>
-      <Text>{props.text}</Text>
-    </Container>
+    <GridBlock {...props}>
+      <Container>
+        <Text>{props.text}</Text>
+      </Container>
+    </GridBlock>
   )
 }
