@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Button from '../components/Button'
+import Timer from '../components/Timer'
 import Grid from '../components/Grid'
 import GridBlock from '../components/GridBlock'
 
@@ -79,6 +80,10 @@ export default function IndexPage({ data }) {
         text="this is a button component"
         row="5"
         col="3"
+      />
+
+      <Timer
+        countDownDate = "jan 22, 2018 12:00:00"
       />
 
     </Grid>
