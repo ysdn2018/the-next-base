@@ -83,7 +83,8 @@ export default function IndexPage({ data }) {
       />
 
       <Timer
-        countDownDate = "jan 22, 2018 12:00:00"
+        row="5"
+        countdownDate = "Jan 22, 2018 12:00:00"
       />
 
     </Grid>
