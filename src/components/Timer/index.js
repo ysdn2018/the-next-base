@@ -38,6 +38,7 @@ class CountdownTimer extends React.Component {
 
 	componentDidMount() {
 		this.state.interval = setInterval(this.tick, 1000);
+    this.afterEachSecond(this.props.endDate);
 	}
 
 	componentWillUnmount() {
@@ -53,8 +54,6 @@ class CountdownTimer extends React.Component {
 	}
 
 	afterEachSecond(endDate) {
-		console.log(this.props.endDate.format('llll'));
-
 		var temp = { months: "", days: "", h: "", m: "", s: "" };
 		var now = moment(); // today's date
 		var end = moment(endDate); // end date
